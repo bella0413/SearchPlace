@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MapContainer from "./MapContainer";
-
+import { Button } from 'reactstrap';
 const SearchPlace = () => {
   // const [<상태 값 저장 변수>, <상태 값 갱신 함수>] = useState(<상태 초기 값>);
   const [inputText, setInputText] = useState("");
@@ -20,19 +20,18 @@ const SearchPlace = () => {
     <>
       <form className="inputForm" onSubmit={handleSubmit}>
         <input
-          placeholder="Search Place..."
+          placeholder="  예시) ㅇㅇ시 맛집"
           onChange={onChange}
           value={inputText}
           style={{
-            width: '800px',
-            height: '50px',
-            margin: '10px auto',
+            width: '43rem',
+            height: '3rem',
         }}
         />
         <button type="submit" style={{
-            width: '80px',
-            height: '56px',
-            margin: '10px auto',
+            width: '5rem',
+            height: '3rem',
+            margin: '0 1rem',
         }}>검색</button>
       </form>
       <MapContainer searchPlace={place} />

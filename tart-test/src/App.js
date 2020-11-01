@@ -1,9 +1,11 @@
 /*global kakao*/
-import logo from './logo.svg';
+
 import './App.css';
 import React, {Component} from 'react';
 import Subject from "./components/Subject";
-import Hello from "./components/Hello";
+import Intro from "./components/Intro";
+
+
 import MapContainer from "./components/MapContainer";
 import SearchPlace from "./components/SearchPlace";
 
@@ -14,12 +16,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        우리동네 이곳저곳
+      🗺 이곳저곳 🗺 
       </header>
-      <Hello />
-      <Subject></Subject>
+      <div style={{
+        height: '4rem',
+      }}>
+      <Intro className="btn"></Intro>
+      </div>
+      <div className="content">
       <SearchPlace></SearchPlace>
-      <MapContainer></MapContainer>
+      </div>
     </div>
 
   );
