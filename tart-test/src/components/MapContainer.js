@@ -3,10 +3,10 @@ import React, { useEffect } from 'react';
 
 const { kakao } = window;
 
-const MapContainer = () => {
-// const MapContainer = ({ searchPlace}) => {
+// const MapContainer = () => {
+const MapContainer = ({ searchPlace}) => {
     useEffect(() => {  
-        // let infowindow = new kakao.maps.InfoWindow({zIndex:1}); // 마커를 클릭하면 장소명을 표출할 인포윈도우
+        let infowindow = new kakao.maps.InfoWindow({zIndex:1}); // 마커를 클릭하면 장소명을 표출할 인포윈도우
         const container = document.getElementById('myMap'); //지도를 담을 영역의 DOM 레퍼런스
         const options = { //지도를 생성할 때 필요한 기본 옵션
             center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
@@ -25,7 +25,7 @@ const MapContainer = () => {
 
 
     const ps = new kakao.maps.services.Places();  // 장소 검색 객체 생성
-    ps.keywordSearch('구리 맛집', placesSearchCB); // 키워드로 장소 검색
+    ps.keywordSearch(searchPlace, placesSearchCB); // 키워드로 장소 검색
 
 
     // 키워드 검색 완료 시 호출되는 콜백 함수
@@ -53,21 +53,20 @@ const MapContainer = () => {
             map: map,
             position: new kakao.maps.LatLng(place.y, place.x) 
         });
-    }
 
     // 마커에 클릭 이벤뜨 등록
-    // kakao.maps.event.addListener(marker, 'click', function() {
-    //     // 마커 클릭 시 장소명이 인포윈도우에 표출
-    //     infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-    //     infowindow.open(map, marker);
-    // });
-
-    // }, [searchPlace]);
-    }, []);
+    kakao.maps.event.addListener(marker, 'click', function() {
+        // 마커 클릭 시 장소명이 인포윈도우에 표출
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+        infowindow.open(map, marker);
+    });
+    }
+ }, [searchPlace]); // 두번째 인자 값이 바뀔 때도 호출된다.
+   // }, []);
     
     return (
         <div id='myMap' style={{
-            width: '500px',
+            width: '800px',
             height: '500px',
             margin: '10px auto',
         }}></div>

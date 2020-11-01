@@ -13,27 +13,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello, {subject}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Subject title="Nice" content="hahahaha success"/>
+      <header className="App-header">
+        우리동네 이곳저곳
+      </header>
       <Hello />
-      <Hello></Hello>
       <Subject></Subject>
-      {/* <SearchPlace></SearchPlace> */}
-      <h1 style={{
-            color: 'skyblue',}}>우리동네 이곳저곳</h1>
+      <SearchPlace></SearchPlace>
       <MapContainer></MapContainer>
     </div>
 
