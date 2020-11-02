@@ -8,14 +8,16 @@ import SearchPlace from "./components/SearchPlace";
 import MemoHead from "./components/MemoHead";
 import MemoList from './components/MemoList';
 import MemoCreate from './components/MemoCreate';
+import { MemoProvider } from './MemoContext';
 
 function App() {
   const subject = "react"; 
 
   return (
+    <MemoProvider>
     <div className="App">
       <header className="App-header">
-      🗺 이곳저곳 🗺 
+      🌎 이곳저곳 🌎
       </header>
       <div className="intro">
       <Intro className="btn"></Intro>
@@ -37,7 +39,7 @@ function App() {
 
       </div>
     </div>
-
+    </MemoProvider>
   );
 }
 

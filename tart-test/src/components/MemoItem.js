@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { MdDelete } from 'react-icons/md';
+import { useMemoDispatch } from '../MemoContext';
 
 const Remove = styled.div`
   display: flex;
@@ -35,14 +36,16 @@ const Text = styled.div`
 `;
 
 function MemoItem({ id, text }) {
-  return (
-    <MemoItemBlock>
-      <Text>{text}</Text>
-      <Remove>
-        <MdDelete />
-      </Remove>
-    </MemoItemBlock>
-  );
+    const dispatch = useMemoDispatch();
+    const onRemove = () => dispatch({ type: 'REMOVE', id });
+    return (
+      <MemoItemBlock>
+        <Text>{text}</Text>
+        <Remove onClick={onRemove}>
+          <MdDelete />
+        </Remove>
+      </MemoItemBlock>
+    );
 }
 
 export default MemoItem;

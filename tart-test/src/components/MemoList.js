@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import MemoItem from './MemoItem';
+import { useMemoState} from '../MemoContext';
 
 const MemoListBlock = styled.div`
   flex: 1;
@@ -10,9 +11,20 @@ const MemoListBlock = styled.div`
 `;
 
 function MemoList() {
-  return <MemoListBlock>
-      <MemoItem text="전수연 짱짱~~~"></MemoItem>
-  </MemoListBlock>;
+
+const memos = useMemoState();
+
+  return (
+  <MemoListBlock>
+      {memos.map(memo => (
+          <MemoItem
+          key={memo.id}
+          id={memo.id}
+          text={memo.text}
+          />
+      ))}
+  </MemoListBlock>
+  );
 }
 
 export default MemoList;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { MdAdd } from 'react-icons/md';
+import { useMemoDispatch, useMemoNextId } from '../MemoContext';
 
 const CircleButton = styled.button`
   background: #38d9a9;
@@ -26,7 +27,7 @@ const CircleButton = styled.button`
   color: white;
   border-radius: 50%;
   border: none;
-  outline: none;
+  outline: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +39,9 @@ const CircleButton = styled.button`
       background: #ff6b6b;
       &:hover {
         background: #ff8787;
-        outline: none;
       }
       &:active {
         background: #fa5252;
-        outline: none;
       }
       transform: translate(-50%, 50%) rotate(45deg);
     `}
@@ -78,24 +77,49 @@ const Input = styled.input`
 `;
 
 function MemoCreate() {
-  const [open, setOpen] = useState(false);
-
-  const onToggle = () => setOpen(!open);
-
-  return (
-    <>
-      {open && (
-        <InsertFormPositioner>
-          <InsertForm>
-            <Input autoFocus placeholder="저장할 장소를 입력하고 Enter를 누르세요" />
-          </InsertForm>
-        </InsertFormPositioner>
-      )}
-      <CircleButton onClick={onToggle} open={open}>
-        <MdAdd />
-      </CircleButton>
-    </>
-  );
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState('');
+  
+    const dispatch = useMemoDispatch();
+    const nextId = useMemoNextId();
+  
+    const onToggle = () => setOpen(!open);
+    const onChange = e => setValue(e.target.value);
+    const onSubmit = e => {
+      e.preventDefault(); // 새로고침 방지
+      dispatch({
+        type: 'CREATE',
+        memo: {
+          id: nextId.current,
+          text: value,
+        }
+      });
+      setValue('');
+      setOpen(false);
+      nextId.current += 1;
+    };
+  
+    return (
+      <>
+        {open && (
+          <InsertFormPositioner>
+            <InsertForm onSubmit={onSubmit}>
+              <Input
+                autoFocus
+                placeholder="메모할 장소를 입력하고 Enter 를 누르세요"
+                onChange={onChange}
+                value={value}
+              />
+            </InsertForm>
+          </InsertFormPositioner>
+        )}
+        <CircleButton onClick={onToggle} open={open}>
+          <MdAdd />
+        </CircleButton>
+      </>
+    );
 }
 
-export default MemoCreate;
+export default React.memo(MemoCreate);
+
+
