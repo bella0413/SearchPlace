@@ -2,13 +2,12 @@
 
 import './App.css';
 import React, {Component} from 'react';
-import Subject from "./components/Subject";
 import Intro from "./components/Intro";
-
-
-import MapContainer from "./components/MapContainer";
+import MemoTemplate from "./components/MemoTemplate";
 import SearchPlace from "./components/SearchPlace";
-
+import MemoHead from "./components/MemoHead";
+import MemoList from './components/MemoList';
+import MemoCreate from './components/MemoCreate';
 
 function App() {
   const subject = "react"; 
@@ -18,13 +17,24 @@ function App() {
       <header className="App-header">
       🗺 이곳저곳 🗺 
       </header>
-      <div style={{
-        height: '4rem',
-      }}>
+      <div className="intro">
       <Intro className="btn"></Intro>
       </div>
-      <div className="content">
+
+      <div className="content clearfix">
+      
+      <div className="left-item">
       <SearchPlace></SearchPlace>
+      </div>
+
+      <div className="right-item">
+      <MemoTemplate>
+        <MemoHead></MemoHead>
+        <MemoList></MemoList>
+        <MemoCreate></MemoCreate>
+      </MemoTemplate>
+      </div>
+
       </div>
     </div>
 

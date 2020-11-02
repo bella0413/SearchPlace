@@ -68,7 +68,7 @@ const MapContainer = ({ searchPlace}) => {
         <div id='myMap' style={{
             width: '800px',
             height: '500px',
-            margin: '1rem auto',
+            marginTop: '1rem',
         }}></div>
 
 

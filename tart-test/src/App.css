@@ -1,6 +1,10 @@
+input:focus {outline:none;}
+
+
 .App {
   text-align: center;
 }
+
 
 
 .App-header {
@@ -16,6 +20,19 @@
   margin: 0 0 3vh;
 }
 
+.App .intro{
+  height: 4rem;
+}
+
+.App .left-item{
+  float: left;
+  
+}
+
+.App .right-item{
+  float: left;
+  margin-left: 2rem;
+}
 .App .btn {
   margin: 1rem 1rem;
   transition: width 2s;
@@ -25,5 +42,6 @@
   width : 9rem;
 }
 .App .content{
-  margin: 4rem 0;
+  width: 80rem;
+  margin: 4rem auto;
 }
