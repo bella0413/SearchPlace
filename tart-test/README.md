@@ -10,7 +10,7 @@
 - 지도 옆 메모장을 통해 검색결과에 대한 간단한 메모를 작성 및 삭제할 수 있습니다.
 
 
-## Vedio
+## Video
 https://www.notion.so/83bb8def06214cb8b738a5a7411fe6da
 
 
