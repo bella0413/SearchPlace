@@ -1,7 +1,7 @@
 # SearchPlace 
 
 
-## 서비스 제목 :  이곳저곳
+## 제목 :  이곳저곳
 
 <img src="https://user-images.githubusercontent.com/51810552/97827260-16d58280-1d07-11eb-84e8-1e37fdc555f8.PNG" width="700" height="370">
 
