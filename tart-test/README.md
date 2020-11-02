@@ -1,7 +1,7 @@
 # SearchPlace 
 
 
-## 제목 :  이곳저곳
+## Project title :  이곳저곳
 
 <img src="https://user-images.githubusercontent.com/51810552/97827260-16d58280-1d07-11eb-84e8-1e37fdc555f8.PNG" width="700" height="370">
 
@@ -10,7 +10,7 @@
 - 지도 옆 메모장을 통해 검색결과에 대한 간단한 메모를 작성 및 삭제할 수 있습니다.
 
 
-## 구현 영상
+## Vedio
 https://www.notion.so/83bb8def06214cb8b738a5a7411fe6da
 
 
